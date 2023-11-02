@@ -1,29 +1,112 @@
-# Phase 1: Problem Definition and Design Thinking
-# Problem Definition:
-The problem at hand involves developing an earthquake prediction model utilizing a Kaggle dataset. The primary objective encompasses exploring and comprehending the vital features of earthquake data, creating a global overview through data visualization on a world map, dividing the data for both training and testing purposes, and constructing a neural network model for predicting earthquake magnitudes based on the provided features.
+# Project-7-Earthquake-Prediction-Model-using-Python.
+This project aims to predict earthquake magnitudes based on latitude, longitude, and depth using a Random Forest regression model. The prediction model is exposed as a Flask API for real-time predictions.
 
-# Design Thinking:
-**Data Source Selection:**
+## Dataset Source
 
-**Task**: Choose an appropriate Kaggle dataset containing earthquake data.
-**Action**: Explore various datasets available on Kaggle, focusing on datasets with relevant features such as date, time, latitude, longitude, depth, and magnitude. Select a dataset that is comprehensive and well-maintained.
-# Feature Exploration:
+The dataset used in this project was obtained from the https://www.kaggle.com/datasets/usgs/earthquake-database, a comprehensive database maintained by the United States Geological Survey (USGS). The dataset contains historical earthquake records with essential features such as latitude, longitude, depth, and magnitude.
 
-**Task**: Analyze and understand the distribution, correlations, and characteristics of key features.
-**Action**: Utilize statistical methods and visualization techniques (e.g., histograms, scatter plots, correlation matrices) to gain insights into the data. Understand how the features relate to each other and identify potential patterns.
-Visualization:
+# how to run the code and any dependency: 
+# How to Run:
+  insatll jupyter notebook in your commend prompt
+    # pip install jupyter lab
+    # pip install jupyter notebbok (or)
+        1.Download Anaconda community software for desktop
+        2. Install the anaconda community
+        3. open jupyter notebook
+        4.type the code & execute the given code
 
-**Task**: Create a world map visualization to display earthquake frequency distribution.
-**Action**: Utilize geospatial visualization libraries (such as Folium in Python) to plot earthquake data points on a world map. Use colors, sizes, or heatmaps to represent earthquake magnitudes. This visualization will provide a clear global overview of earthquake occurrences.
-# Data Splitting:
+## Dataset Description
 
-**Task**: Split the dataset into a training set and a test set for model validation.
-**Action**: Use established techniques like random splitting or time-based splitting, depending on the dataset's characteristics. Aim for a balance that ensures the model is trained on diverse data and evaluated on unseen data.
-# Model Development:
+The dataset provides information about earthquake events worldwide, including:
 
-**Task**: Build a neural network model for earthquake magnitude prediction.
-**Action**: Design a neural network architecture suitable for regression tasks. Experiment with different layers, activation functions, and optimizers. Normalize or scale the input features as necessary. Monitor the model's complexity to prevent overfitting.
-# Training and Evaluation:
+- **Latitude:** The geographical north-south coordinate of the earthquake location.
+- **Longitude:** The geographical east-west coordinate of the earthquake location.
+- **Depth:** The depth at which the earthquake occurred beneath the Earth's surface.
+- **Magnitude:** The magnitude of the earthquake, indicating its energy release.
 
-**Task**: Train the model on the training set and evaluate its performance on the test set.
-**Action**: Train the neural network using the training data, adjusting hyperparameters if required. Evaluate the model's performance on the test set, utilizing metrics like mean squared error (MSE) or root mean squared error (RMSE) to quantify prediction accuracy. Iterate on the model and data preprocessing steps to enhance performance# Project-7-Earthquake-Predic5ion-Model-Using-Python
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoint](#api-endpoint)
+- [Example Request](#example-request)
+- [Dependencies](#dependencies)
+- [License](#license)
+
+## Prerequisites
+
+Before running the code, ensure you have the following installed on your system:
+
+- Python 3.x
+- `pip` (Python package manager)
+
+## Installation
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/cSandhiya08/Project-7-Earthquake-Prediction-Model-Using-Python.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd earthquake-prediction
+   ```
+
+3. Install the required Python packages using `pip`:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+Run the Flask API server with the following command:
+
+```bash
+python earthquake_prediction.py
+```
+
+The API will be accessible at `http://localhost:5000`.
+
+## API Endpoint
+
+- **Endpoint:** `/predict`
+- **Method:** POST
+- **Request Format:** JSON
+- **Request Parameters:**
+  - `Latitude` (float): Latitude of the location.
+  - `Longitude` (float): Longitude of the location.
+  - `Depth` (float): Depth of the earthquake event.
+- **Response Format:** JSON
+- **Response Parameter:**
+  - `Magnitude` (float): Predicted earthquake magnitude.
+
+## Example Request
+
+```json
+{
+  "Latitude": 34.0522,
+  "Longitude": -118.2437,
+  "Depth": 10.0
+}
+```
+
+## Dependencies
+
+- `pandas`
+- `scikit-learn`
+- `joblib`
+- `flask`
+
+Install these dependencies using the provided `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
